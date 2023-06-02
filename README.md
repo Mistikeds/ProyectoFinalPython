@@ -22,9 +22,9 @@ El usuario final puede:
   . Template Base
   . Galería
   . Seguridad
+  . Creacion de usuarios y login
 
 - Maddalena Martín
-  . Creacion de usuarios y login
   . Templates de reservas
   . CCS de formularios front End 
   . Aplicacion de boostrap
