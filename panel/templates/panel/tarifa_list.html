@@ -1,0 +1,35 @@
+{% extends "panel/base.html" %}
+{% block tab%}Listado de tarifas{% endblock %}
+{% block content %}
+<main class="flex-shrink-0">
+    <div class="container" style="margin-top: 1em;">
+     <a type="button" href="{% url 'tarifa-create' %}" class="btn btn-sm btn-outline-primary" style="margin-top: 1em;">Nueva Tarifa</a> <a type="button" href = "{% url 'galeria' %}" style="margin-top: 1em;" class="btn btn-sm btn-outline-primary" >Pagina Principal</a> 
+  <table class="table">
+  <thead>
+    <tr>
+      
+      <th scope="col">Periodo</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Cantidad maxima de personas</th>
+
+     
+    </tr>
+  </thead>
+        <tbody>
+          {%for tarifa in tarifas %}
+            <tr>
+            
+            <td>{{tarifa.periodo}} dias</td>
+            <td>${{tarifa.precio}}</td>
+            <td>{{tarifa.cantidad_maxima_personas}}</td>
+            <td>
+                <a type="button" href="{% url 'tarifa-update' tarifa.id %}" class="btn btn-sm btn-outline-warning "><img src="../../static/img/pencil.svg" alt=""></a>
+                <a type="button" href="{% url 'tarifa-delete' tarifa.id %}" class="btn btn-sm btn-outline-danger"><img src="./../../static/img/trash.svg" alt=""></a>
+            </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>    
+    </div>
+  </main>
+{% endblock %}

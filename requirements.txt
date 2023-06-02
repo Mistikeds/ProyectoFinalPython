@@ -1,0 +1,6 @@
+Python==3.10.7
+Django==4.1.2
+Django_crispy-forms==1.14.0
+Django-ckeditor==6.5.1
+Pillow==9.3.0
+

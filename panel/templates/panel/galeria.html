@@ -1,0 +1,96 @@
+{% extends "panel/base.html" %}
+{% block tab%}Galeria{% endblock %}
+{% block title%} Galeria de imagenes {% endblock %}
+
+{% block content %}
+<p></p>
+        <div class="container">
+          <div class="row">
+              <!-- Blog entries-->
+              <div class="col-lg-8">
+  
+    
+      
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        
+        {% for posteo in posteos %}
+           
+              <div class="col">
+                <div class="card shadow-sm">
+                  <img height="225" class="card-img-top"    src="{{ posteo.foto.url }}" />  
+                  <div class="card-body">
+                    <h2 class="card-title"><u>{{posteo.titulo}}</u></h2>
+                    <p class="card-text">{{posteo.descripcion_corta}}</p>
+                    
+                    <a class="btn btn-primary" href="{% url 'reserva' %}">Reservar →</a> <a class="btn btn-primary" href="{% url 'detalle_posteo' posteo.id %}">Detalles →</a>
+                    <div class="d-flex justify-content-between align-items-end">
+                      <div class="btn-group">
+                      {% if user.can_edit %}
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Editar</button>
+                      {% endif %}
+                      </div>
+                      <div class="btn-group"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          
+        {% endfor %}
+
+      </div>
+    
+
+                   <!-- Pagination-->
+                   <nav aria-label="Pagination">
+                    <hr class="my-0" />
+                    <ul class="pagination justify-content-center my-4">
+                        <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
+                        <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
+                        <li class="page-item"><a class="page-link" href="{% url 'mantenimiento' %}">2</a></li>
+                        <li class="page-item"><a class="page-link" href="{% url 'mantenimiento' %}">3</a></li>
+                        <li class="page-item disabled"><a class="page-link" href="{% url 'mantenimiento' %}">...</a></li>
+                        <li class="page-item"><a class="page-link" href="{% url 'mantenimiento' %}">15</a></li>
+                        <li class="page-item"><a class="page-link" href="{% url 'mantenimiento' %}">Older</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- Side widgets-->
+            <div class="col-lg-4">
+             
+                <!-- Categories widget-->
+                <div class="card mb-4">
+                  
+                    <div class="card-header">Links externos</div>
+                    <div class="card-body">
+                        <div class="row">
+                          
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="https://www.google.com/?hl=es">Google</a></li>
+                                    <li><a href="https://www.booking.com/index.es.html?label=esrow-OtlvhU2CXhSVxek50Z_17wS410489931081%3Apl%3Ata%3Ap1%3Ap22.563.000%3Aac%3Aap%3Aneg%3Afi%3Atikwd-65526620%3Alp20009%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YcUSe6BbHz0Ad_yDShFFSHQ;aid=376374;ws=">Booking</a></li>
+                                    <li><a href="https://www.trivago.com.ar/es-AR">Trivago</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="https://www.despegar.com.ar/">Despegar</a></li>
+                                    <li><a href="https://ar.hoteles.com/">Hoteles.com</a></li>
+                                    <li><a href="{% url 'mantenimiento' %}">Tutorials</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Side widget-->
+                <div class="card mb-4">
+                    <div class="card-header">Objetivo empresa</div>
+                    <div class="card-body">WibmarsHotel esta encargada de facilitar al cliente a encontrar el lugar ideal donde pasar sus vacaciones brindando las mejores habitaciones a donde viaje. </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+

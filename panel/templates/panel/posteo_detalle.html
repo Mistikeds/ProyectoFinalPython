@@ -1,0 +1,22 @@
+{% extends "panel/base.html" %}
+
+{% block tab%}Detalle Galeria{% endblock %}
+
+{% block content %}
+
+  
+  <main class="flex-shrink-0" style="position:relative; left: 150px;">
+    <br><br><br><br>
+    <div class="container">
+      <div style="text-align:center;">
+        <h1 class="fw-light">{{posteo.titulo}}</h1>
+        <p class="lead text-muted">{{posteo.descripcion_corta}}</p>
+        <img height="225px" src="{{ posteo.foto.url }}" /> 
+      </div>
+      <div style="padding-top: 3em;">
+       {{posteo.contenido | safe }}
+      </div>
+    </div>
+  
+  </main>
+{% endblock %}

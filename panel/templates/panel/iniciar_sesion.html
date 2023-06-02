@@ -1,0 +1,13 @@
+{% extends "panel/base.html" %}
+
+{% block title %}Inicia Sesión{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <a href="{% url 'sign_up' %}">Registrar</a> <span>|</span> <a href="{% url 'mantenimiento' %}">Olvide mi contraseña</a>
+        <input type="submit" name="submit">
+    </form>
+
+{% endblock content %}

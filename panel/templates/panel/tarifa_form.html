@@ -1,0 +1,26 @@
+{% extends "panel/base.html" %}
+{% load static %}
+{% block extrahead%}
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+{% endblock %}
+
+{% block tab%} Administracion de tarifas {% endblock %}
+{% block title%} Creando un nueva tarifa {% endblock %}
+
+{% block content %}
+<main class="flex-shrink-0">
+    <div class="container">
+        <a type="button" href = "{% url 'galeria' %}" style="margin-top: 1em;" class="btn btn-sm btn-outline-primary" >Pagina Principal</a>
+        <form method="post" enctype="multipart/form-data" style="margin-top: 1em;">{% csrf_token %}
+            {{ form.as_p }}
+            {{form.media}}
+            {% if request.resolver_match.url_name == "tarifa-update" %}
+                <input type="submit" value="Actualizar">
+            {% else %}
+                <input type="submit" value="Crear">
+            {% endif %}    
+        </form>
+    </div>  
+</main>
+{% endblock %}

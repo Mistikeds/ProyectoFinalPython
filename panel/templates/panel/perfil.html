@@ -1,0 +1,41 @@
+{% extends "panel/base.html" %}
+
+{% block title %}Perfil{% endblock %}
+
+{% block content %} 
+
+
+<div class="content" style="position: relative; left: 20%">
+<table class="table" style="text-align: center;">
+
+    <thead>
+    <tr>
+        <th scope="col">Nombre Usuario</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Email/Correo</th>
+       
+        <th scope="col">Acciones</th>
+
+
+    </tr>
+    </thead>
+    <tbody class="table-group-divider">
+
+   
+        <tr>
+            <td><img src="#" alt="Foto"></td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.first_name}}</td>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.email }}</td>
+            
+            <td><a type="button" href="" class="btn btn-sm btn-outline-warning "><img src="../../static/img/pencil.svg" alt=""></a>
+                <a type="button" href="" class="btn btn-sm btn-outline-danger"><img src="./../../static/img/trash.svg" alt=""></a>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+</div>
+{% endblock content %}

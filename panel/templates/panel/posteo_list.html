@@ -1,0 +1,39 @@
+{% extends "panel/base.html" %}
+{% block tab%}Listado de posteos{% endblock %}
+{% block content %}
+<main class="flex-shrink-0">
+    <div class="container" style="margin-top: 1em;">
+     <a type="button" href="{% url 'posteo-create' %}" class="btn btn-sm btn-outline-primary" style="margin-top: 1em;">Nuevo Posteo</a> <a type="button" href = "{% url 'galeria' %}" style="margin-top: 1em;" class="btn btn-sm btn-outline-primary" >Pagina Principal</a> 
+  <table class="table">
+  <thead>
+    <tr>
+      
+      <th scope="col">Titulo</th>
+      <th scope="col">Descripcion</th>
+      <th scope="col">Contenido</th>
+      <th scope="col">Foto</th>
+      <th scope="col">Promo</th>
+      <th scope="col">Acciones</th>
+     
+    </tr>
+  </thead>
+        <tbody>
+          {%for posteo in posteos %}
+            <tr>
+            
+            <td>{{posteo.titulo}}</td>
+            <td>{{posteo.descripcion_corta}}</td>
+            <td>{{posteo.contenido}}</td>
+            <td></td>
+            <td>{{posteo.es_una_promo}}</td>
+            <td>
+                <a type="button" href="{% url 'posteo-update' posteo.id %}" class="btn btn-sm btn-outline-warning "><img src="../../static/img/pencil.svg" alt=""></a>
+                <a type="button" href="{% url 'posteo-delete' posteo.id %}" class="btn btn-sm btn-outline-danger"><img src="./../../static/img/trash.svg" alt=""></a>
+            </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>    
+    </div>
+  </main>
+{% endblock %}

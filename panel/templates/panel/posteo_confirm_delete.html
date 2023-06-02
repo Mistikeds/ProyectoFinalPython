@@ -1,0 +1,16 @@
+{% extends "panel/base.html" %}
+{% block tab%}Borrado de posteos{% endblock %}
+{% block content %}
+<main class="flex-shrink-0">
+    <div class="container">
+        
+        <form method="post">
+            {% csrf_token %}
+            <h3>Usted esta seguro que desea eliminar "{{ object.titulo }}"?</h3>
+            {{ form }}
+            <input type="submit" value="Confirmar" style="margin-top: 1em;" class="btn btn-sm btn-outline-danger"> 
+            <a type="button" href = "{% url 'galeria' %}" style="margin-top: 1em;" class="btn btn-sm btn-outline-primary" >Cancelar</a>
+        </form>
+    </div>
+</main>
+{% endblock %}
